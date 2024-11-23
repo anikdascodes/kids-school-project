@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  {
+    name: 'Sarah Johnson',
+    role: 'Principal',
+    image: '/team/principal.svg',
+    description: 'Leading our school with 15+ years of early education experience.'
+  },
+  {
+    name: 'Michael Chen',
+    role: 'Lead Teacher',
+    image: '/team/teacher1.svg',
+    description: 'Specializing in creative arts and early literacy development.'
+  },
+  {
+    name: 'Emma Rodriguez',
+    role: 'Activities Director',
+    image: '/team/teacher2.svg',
+    description: 'Creating engaging programs that make learning fun.'
+  }
+];
+---
+
+<Layout title="About Us">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="text-center mb-16">
+      <h1 class="font-bubblegum text-5xl text-primary mb-6">Our Story</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Founded in 2010, Little Learners Academy has been dedicated to nurturing young minds
+        through play-based learning and creative exploration. Our mission is to create a
+        safe, loving environment where every child can thrive.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h2 class="font-bubblegum text-3xl text-primary mb-4">Our Mission</h2>
+        <p class="text-gray-600">
+          To provide a nurturing environment that encourages learning through play,
+          creativity, and exploration, helping each child develop their unique potential.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h2 class="font-bubblegum text-3xl text-primary mb-4">Our Values</h2>
+        <ul class="text-gray-600 space-y-2">
+          <li>• Child-centered learning approach</li>
+          <li>• Safe and inclusive environment</li>
+          <li>• Creative expression</li>
+          <li>• Community engagement</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="font-bubblegum text-4xl text-primary text-center mb-12">Meet Our Team</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {team.map(member => (
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <img
+            src={member.image}
+            alt={member.name}
+            class="w-32 h-32 mx-auto mb-4 rounded-full"
+          />
+          <h3 class="font-bubblegum text-xl text-primary mb-2">{member.name}</h3>
+          <p class="text-secondary font-medium mb-2">{member.role}</p>
+          <p class="text-gray-600">{member.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

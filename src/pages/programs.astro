@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const programs = [
+  {
+    title: 'Early Learners',
+    age: '2-3 years',
+    description: 'Introduction to social skills and basic concepts through play.',
+    activities: ['Sensory Play', 'Basic Motor Skills', 'Music & Movement', 'Story Time']
+  },
+  {
+    title: 'Preschool',
+    age: '3-4 years',
+    description: 'Focus on developmental milestones and foundational learning.',
+    activities: ['Letter Recognition', 'Number Concepts', 'Art Projects', 'Group Activities']
+  },
+  {
+    title: 'Pre-K',
+    age: '4-5 years',
+    description: 'Preparation for kindergarten with advanced learning concepts.',
+    activities: ['Early Reading', 'Basic Math', 'Science Experiments', 'Writing Skills']
+  }
+];
+
+const activities = [
+  {
+    icon: '🎨',
+    title: 'Arts & Crafts',
+    description: 'Daily creative activities to develop fine motor skills and imagination.'
+  },
+  {
+    icon: '🎵',
+    title: 'Music & Dance',
+    description: 'Weekly music sessions with movement and rhythm activities.'
+  },
+  {
+    icon: '🌱',
+    title: 'Nature Exploration',
+    description: 'Outdoor learning experiences in our garden and nature area.'
+  },
+  {
+    icon: '🔬',
+    title: 'STEM Activities',
+    description: 'Age-appropriate science and math exploration through play.'
+  }
+];
+---
+
+<Layout title="Our Programs">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="font-bubblegum text-5xl text-primary text-center mb-16">Our Programs</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+      {programs.map(program => (
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h2 class="font-bubblegum text-2xl text-primary mb-2">{program.title}</h2>
+          <p class="text-secondary font-medium mb-4">Ages: {program.age}</p>
+          <p class="text-gray-600 mb-4">{program.description}</p>
+          <h3 class="font-bubblegum text-lg text-primary mb-2">Activities Include:</h3>
+          <ul class="text-gray-600">
+            {program.activities.map(activity => (
+              <li class="mb-1">• {activity}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="font-bubblegum text-4xl text-primary text-center mb-12">Special Activities</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {activities.map(activity => (
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="text-4xl mb-4">{activity.icon}</div>
+          <h3 class="font-bubblegum text-xl text-primary mb-2">{activity.title}</h3>
+          <p class="text-gray-600">{activity.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

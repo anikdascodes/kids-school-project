@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const features = [
+  {
+    title: 'Play-Based Learning',
+    description: 'Children learn best through play and hands-on experiences.',
+    icon: '🎨'
+  },
+  {
+    title: 'Safe Environment',
+    description: "Your child's safety is our top priority.",
+    icon: '🏡'
+  },
+  {
+    title: 'Qualified Teachers',
+    description: 'Experienced and caring education professionals.',
+    icon: '👩‍🏫'
+  },
+  {
+    title: 'Creative Activities',
+    description: 'Art, music, and movement programs daily.',
+    icon: '🎵'
+  }
+];
+---
+
+<Layout title="Welcome">
+  <div class="relative bg-gradient-to-b from-accent to-background py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center">
+        <h1 class="font-bubblegum text-4xl sm:text-5xl md:text-7xl text-primary mb-6 animate-float">
+          Where Learning is an Adventure!
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+          Join us at Little Learners Academy for a magical journey of discovery and growth
+        </p>
+        <a
+          href="/enroll"
+          class="inline-block bg-primary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-colors duration-200"
+        >
+          Start Your Journey
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="font-bubblegum text-3xl md:text-4xl text-center text-primary mb-12">Why Choose Us?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        {features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
+            <div class="text-4xl mb-4">{feature.icon}</div>
+            <h3 class="font-bubblegum text-xl text-primary mb-2">{feature.title}</h3>
+            <p class="text-gray-600 text-sm md:text-base">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-secondary bg-opacity-10 py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="font-bubblegum text-3xl md:text-4xl text-center text-primary mb-12">Latest from Our Blog</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        {[1, 2, 3].map((_, i) => (
+          <a href="/blog/post-1" class="block group">
+            <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+              <div class="aspect-video bg-gray-100"></div>
+              <div class="p-6">
+                <h3 class="font-bubblegum text-xl text-primary mb-2 group-hover:text-secondary transition-colors duration-200">
+                  Fun Learning Activities
+                </h3>
+                <p class="text-gray-600 mb-4 text-sm md:text-base">
+                  Discover exciting ways to make learning fun at home...
+                </p>
+                <span class="text-secondary font-medium text-sm md:text-base">Read more →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
